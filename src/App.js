@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
-import supabase from "./supabase";
+// import supabase from "./supabase";
+import "./supabase";
 import "./style.css";
+import supabase from "./supabase";
 
 const initialFacts = [
   {
@@ -15,7 +17,8 @@ const initialFacts = [
   },
   {
     id: 2,
-    text: "Millennial dads spend 3 times as much time with their kids than their fathers spent with them. In 1982, 43% of fathers had never changed a diaper. Today, that number is down to 3%",
+    text:
+      "Millennial dads spend 3 times as much time with their kids than their fathers spent with them. In 1982, 43% of fathers had never changed a diaper. Today, that number is down to 3%",
     source:
       "https://www.mother.ly/parenting/millennial-dads-spend-more-time-with-their-kids",
     category: "society",
@@ -45,23 +48,23 @@ const CATEGORIES = [
   { name: "history", color: "#f97316" },
   { name: "news", color: "#8b5cf6" },
 ];
-function Counter() {
-  const [count, setCount] = useState(0);
-  return (
-    <did>
-      <span style={{ fontSize: "40px" }}>{count}</span>
-      <button className="btn btn-large" onClick={() => setCount((c) => c + 1)}>
-        +1
-      </button>
-    </did>
-  );
-}
+// function Counter() {
+//   const [count, setCount] = useState(0);
+//   return (
+//     <did>
+//       <span style={{ fontSize: "40px" }}>{count}</span>
+//       <button className="btn btn-large" onClick={() => setCount((c) => c + 1)}>
+//         +1
+//       </button>
+//     </did>
+//   );
+// }
 function App() {
   const [showForm, setShowForm] = useState(false);
-  const [facts, setFacts] = useState([]);
+  const [facts, setFacts] = useState(initialFacts);
   const [isLoading, setLoading] = useState(false);
 
-  useEffect(function () {
+  useEffect(function() {
     async function getFacts() {
       setLoading(true);
       const { data: facts, error } = await supabase
