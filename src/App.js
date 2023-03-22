@@ -1,8 +1,7 @@
 import { useEffect, useState } from "react";
-// import supabase from "./supabase";
-import "./supabase";
-import "./style.css";
 import supabase from "./supabase";
+// import "./supabase";
+import styles from "./style.css";
 
 const initialFacts = [
   {
@@ -48,22 +47,18 @@ const CATEGORIES = [
   { name: "history", color: "#f97316" },
   { name: "news", color: "#8b5cf6" },
 ];
-// function Counter() {
-//   const [count, setCount] = useState(0);
-//   return (
-//     <did>
-//       <span style={{ fontSize: "40px" }}>{count}</span>
-//       <button className="btn btn-large" onClick={() => setCount((c) => c + 1)}>
-//         +1
-//       </button>
-//     </did>
-//   );
-// }
+
 function App() {
   const [showForm, setShowForm] = useState(false);
   const [facts, setFacts] = useState(initialFacts);
   const [isLoading, setLoading] = useState(false);
-
+  // useEffect(function() {
+  //   async function getFacts() {
+  //     const { data: facts, error } = await supabase.from("facts").select("id");
+  //     console.log(facts);
+  //   }
+  //   getFacts();
+  // }, []);
   useEffect(function() {
     async function getFacts() {
       setLoading(true);
